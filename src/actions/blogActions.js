@@ -32,7 +32,11 @@ export const createBlog = (blog) => async (dispatch, getState) => {
       },
     };
     console.log(blog);
-    const { data } = await axios.post("/api/blogs", blog, config);
+    const { data } = await axios.post(
+      "https://bolgbackend.up.railway.app/api/blogs",
+      blog,
+      config
+    );
 
     dispatch({ type: BLOG_CREATE_SUCCESS, payload: data });
   } catch (error) {
@@ -61,7 +65,9 @@ export const listBlogs = () => async (dispatch, getState) => {
     //   },
     // };
 
-    const { data } = await axios.get("/api/blogs"); // Adjust the endpoint as per your backend API
+    const { data } = await axios.get(
+      "https://bolgbackend.up.railway.app/api/blogs"
+    ); // Adjust the endpoint as per your backend API
 
     dispatch({
       type: BLOG_LIST_SUCCESS,
@@ -94,7 +100,10 @@ export const deleteBlog = (id) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    await axios.delete(`/api/blogs/${id}`, config); // Adjust the endpoint as per your backend API
+    await axios.delete(
+      `https://bolgbackend.up.railway.app/api/blogs/${id}`,
+      config
+    ); // Adjust the endpoint as per your backend API
 
     dispatch({
       type: BLOG_DELETE_SUCCESS,
@@ -125,7 +134,9 @@ export const getBlogDetails = (id) => async (dispatch, getState) => {
     //   },
     // };
 
-    const { data } = await axios.get(`/api/blogs/${id}`); // Adjust API endpoint
+    const { data } = await axios.get(
+      `https://bolgbackend.up.railway.app/api/blogs/${id}`
+    ); // Adjust API endpoint
 
     dispatch({
       type: BLOG_DETAILS_SUCCESS,
@@ -157,7 +168,11 @@ export const updateBlog = (blog) => async (dispatch, getState) => {
       },
     };
     console.log(blog);
-    const { data } = await axios.put(`/api/blogs/${blog._id}`, blog, config); // Adjust API endpoint and HTTP method
+    const { data } = await axios.put(
+      `https://bolgbackend.up.railway.app/api/blogs/${blog._id}`,
+      blog,
+      config
+    ); // Adjust API endpoint and HTTP method
 
     dispatch({
       type: BLOG_UPDATE_SUCCESS,
