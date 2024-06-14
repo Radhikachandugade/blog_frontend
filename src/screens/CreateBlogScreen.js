@@ -60,7 +60,7 @@ const CreateBlogScreen = () => {
     formData.append("image", file);
 
     try {
-      const { data } = await axios.post("/api/uploads", formData, {
+      const { data } = await axios.post("https://bolgbackend.up.railway.app/api/uploads", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
