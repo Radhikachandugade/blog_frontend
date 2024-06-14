@@ -78,7 +78,7 @@ const SingleBlogScreen = () => {
                 )}
                 {item.image && (
                   <Image
-                    src={item.image}
+                     src={`https://bolgbackend.up.railway.app${item.image}`}
                     alt={item.heading}
                     mb="4"
                     maxH={zoomed ? "auto" : "200px"} // Toggle max height for zoom effect
