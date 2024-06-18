@@ -11,6 +11,11 @@ import {
   Spacer,
   Box,
   Textarea,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
 } from "@chakra-ui/react";
 import axios from "axios";
 import Message from "../components/Message";
@@ -60,11 +65,15 @@ const CreateBlogScreen = () => {
     formData.append("image", file);
 
     try {
-      const { data } = await axios.post("/api/uploads", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      const { data } = await axios.post(
+        "https://bolgbackend.up.railway.app/api/uploads",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
 
       // Assuming backend returns a relative path like `/uploads\image-1718221873440..jpg`
       const imageUrl = data;
@@ -101,6 +110,30 @@ const CreateBlogScreen = () => {
 
         {error && <Message type="error">{error}</Message>}
         {message && <Message type="error">{message}</Message>}
+        <Accordion defaultIndex={[0]} allowMultiple>
+          <AccordionItem>
+            <h2>
+              <AccordionButton>
+                <Box as="span" flex="1" textAlign="left">
+                  Note: Additional Information
+                </Box>
+                <AccordionIcon />
+              </AccordionButton>
+            </h2>
+            <AccordionPanel pb={4}>
+              Please ensure all fields are filled and relevant content is added
+              before submitting your blog post.
+              <br />
+              <ul style={{ marginLeft: "2rem" }}>
+                <li>
+                  You can use HTML tags like &lt;br /&gt; for line breaks.
+                </li>
+                <li>You can style text using inline CSS.</li>
+                <li>You can use &lt;span&gt; tags for fine-grained styling.</li>
+              </ul>
+            </AccordionPanel>
+          </AccordionItem>
+        </Accordion>
 
         <form onSubmit={submitHandler}>
           <FormControl id="title">

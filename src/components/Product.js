@@ -14,6 +14,10 @@ const Product = ({ Oproduct }) => {
   } else {
     readingTime = "5 min Read"; // default value or any other logic you want to implement
   }
+
+
+   const imageUrl = `https://bolgbackend.up.railway.app${Oproduct.content[0].image}`;
+
   return (
     <Link
       as={RouterLink}
@@ -30,8 +34,8 @@ const Product = ({ Oproduct }) => {
         _hover={{ shadow: "md" }}
       >
         <Image
-          src={Oproduct.content[0].image}
-          alt={Oproduct.content[0].image}
+          src={imageUrl}
+          alt={imageUrl}
           minH="300px"
           objectFit="cover"
         />
