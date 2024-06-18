@@ -24,10 +24,10 @@ const HomeScreen = () => {
 
   return (
     <>
-      <div className={`bg-blue text-white p-4`}
-        <h1 className={`text-2xl`}>Hello, tailwind css in react!</h1>
-        <button className={`bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 mt-4 rounded`}>Click Me!</button>
-      </div>
+      // <div className={`bg-blue text-white p-4`}
+      //   <h1 className={`text-2xl`}>Hello, tailwind css in react!</h1>
+      //   <button className={`bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 mt-4 rounded`}>Click Me!</button>
+      // </div>
       <Heading as="h2" mb="8" fontSize="3xl">
         New Blogs ..
       </Heading>
